@@ -146,13 +146,95 @@ footer .copy{font-size:13px;color:#A9B6C6}
 <li><b>1</b><span><span class="k">填寫下方表單，</span><span class="k">送出諮詢需求。</span></span></li><li><b>2</b><span><span class="k">我瞭解需求後，</span><span class="k">以 Email 或 LIN<span class="nb">E 回覆</span></span><span class="k">可以提供的服<span class="nb">務項目。</span></span></span></li><li><b>3</b><span><span class="k">確認諮詢形式：</span><span class="k">線上或面談。</span></span></li><li><b>4</b><span><span class="k">諮詢後提供書<span class="nb">面整理。</span></span></span></li></ol></div>
 </section>
 <section class="in c2"><ul class="note"><li><span class="k">填寫表單與初步回覆<span class="nb">不收費。</span></span></li><li><span class="k">諮詢為提供建議<span class="nb">與策略，</span></span><span class="k">不等於一定要投保或調<span class="nb">整保單，</span></span><span class="k">由您自行決定。</span></li><li><span class="k">本服務不提供法<span class="nb">律意見。</span></span></li></ul></section>
-<section class="in c3"><div class="formbox">
-<iframe id="form" title="個案諮詢需求表" data-src="https://script.google.com/macros/s/AKfycbx2XgPk2s9HE_t-WE---PjM0-KyDlWMMfWJyV_oPn67dkhJPnHDkpRmjKYKtIzsZv9evw/exec?page=consult&embed=1"></iframe>
-<div class="loading" id="formload"><i></i><b>表單載入中</b><span><span class="k">大約需要幾秒鐘，</span><span class="k">請稍候。</span></span><span class="slow" id="formslow" hidden><span class="k">載入時間比較久。</span><br><span class="k">可以改用下方的</span><span class="k">「開新視窗<span class="nb">填寫」，</span></span><br><span class="k">或透過官方 LINE <span class="nb">聯絡我。</span></span></span></div>
+<section class="in c3"><style>
+.nf{margin:0 auto;font-size:16px;color:#1F2A37;text-align:left;max-width:880px}
+.nf-plan{max-width:640px}
+.nf input[type=text],.nf input[type=email],.nf input[type=date],.nf select,.nf textarea{width:100%;font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:1px solid #CFC6B5;border-radius:4px;background:#fff;color:#1F2A37}
+.nf input[type=date]{min-height:50px}
+.nf textarea{resize:vertical;min-height:110px}
+.nf input:focus,.nf select:focus,.nf textarea:focus{outline:2px solid #1F3A5F;outline-offset:1px;border-color:#1F3A5F}
+.nf-card{background:#fff;border:1px solid #E4DED2;border-top:3px solid #1F3A5F;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:24px}
+.nf-plan .nf-card{padding:24px 22px;gap:16px}
+.nf-card h3{margin:0 0 6px;font-family:'Noto Serif TC',serif;font-size:24px;color:#1F3A5F}
+.nf-plan .nf-card h3{font-size:20px;margin:8px 0 0}
+.nf-plan .nf-card h3:first-child{margin-top:0}
+.nf-sub{margin:0;font-size:14px;color:#6B6457}
+.nf-grid{display:flex;flex-wrap:wrap;gap:20px}
+.nf-fld{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:500}
+.nf-fld.w{flex:1 1 280px}
+.nf-card>.nf-fld,.nf-plan .nf-fld{flex:none}
+.nf-req{color:#9A3B2E;font-size:13px;font-weight:400}
+.nf-opt{color:#6B6457;font-size:13px;font-weight:400}
+.nf fieldset{margin:0;padding:0;border:0;min-width:0;font-size:15px}
+.nf legend{padding:0;margin-bottom:8px;font-weight:500}
+.nf-inline{display:flex;flex-wrap:wrap;align-items:center;gap:4px 28px}
+.nf-stack{display:flex;flex-direction:column;gap:10px}
+.nf-radio{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer}
+.nf-pick{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid #CFC6B5;border-radius:4px;cursor:pointer;background:#fff}
+.nf-pick:has(input:checked){border-color:#1F3A5F;background:#F7F5F0;box-shadow:inset 0 0 0 1px #1F3A5F}
+.nf-pick b{display:block;color:#1F3A5F;font-size:16px}
+.nf-pick small{display:block;font-size:13px;color:#4A5260;font-weight:400}
+.nf-radio input,.nf-pick input,.nf-agree input{width:18px;height:18px;flex:none;accent-color:#1F3A5F}
+.nf-pick input,.nf-agree input{margin-top:5px}
+.nf-pills{display:flex;gap:10px}
+.nf-pill{flex:1;position:relative}
+.nf-pill input{position:absolute;opacity:0}
+.nf-pill span{display:block;text-align:center;padding:11px;border:1px solid #CFC6B5;border-radius:4px;cursor:pointer;font-weight:500}
+.nf-pill input:checked+span{background:#1F3A5F;border-color:#1F3A5F;color:#fff}
+.nf-pill input:focus-visible+span{outline:2px solid #D4A955;outline-offset:1px}
+.nf-hint{margin:0;font-size:13px;color:#6B6457;font-weight:400}
+.nf-gov{margin:0;padding:10px 14px;background:#EFEBE3;font-size:13px;color:#4A5260}
+.nf-tip{padding:10px 14px;border-radius:4px;font-size:14px;font-weight:400;background:#EFEBE3;color:#1F3A5F}
+.nf-tip.nf-warn{background:#FBF4E3;color:#6E5220}
+.nf-privacy{background:#F7F5F0;border:1px solid #E4DED2;border-radius:4px;padding:18px 20px;font-size:13px;color:#4A5260;line-height:1.8}
+.nf-privacy b{display:block;color:#1F3A5F;margin-bottom:4px}
+.nf-agree{display:flex;align-items:flex-start;gap:10px;font-size:15px;min-height:44px;cursor:pointer}
+.nf-go{align-self:flex-start;font:inherit;font-weight:700;font-size:16px;background:#1F3A5F;color:#fff;border:0;border-radius:4px;padding:14px 40px;cursor:pointer}
+.nf-plan .nf-go{align-self:stretch;font-size:17px}
+.nf-go:disabled{background:#D9D4C8;color:#6B6457;cursor:not-allowed}
+.nf-msg{padding:14px 16px;border-radius:4px;font-size:15px}
+.nf-err{background:#FBECE9;color:#8A2C20}
+.nf-info{background:#EFEBE3;color:#1F3A5F}
+.nf-ok{background:#E8F1EA;color:#1E5C3A}
+a.nf-btn{display:inline-block;margin-top:10px;text-decoration:none;background:#1F3A5F;color:#fff;font-weight:700;padding:10px 20px;border-radius:4px}
+a.nf-btn:hover{color:#fff;background:#16293F}
+.nf-line a.nf-btn{margin-top:0;padding:13px 34px}
+button.nf-link{font:inherit;background:none;border:0;padding:0;color:#1F3A5F;text-decoration:underline;cursor:pointer}
+.nf-done{border-top-color:#D4A955;align-items:center;text-align:center;gap:16px}
+.nf-done p{margin:0;color:#3A4555}
+.nf-line{width:100%;max-width:520px;background:#F7F5F0;border:1px solid #E4DED2;border-radius:4px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.nf-line .t{font-weight:700;color:#1F3A5F}
+.nf-line .s{font-size:14px;color:#4A5260}
+.nf-hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+@media (max-width:520px){.nf-card{padding:24px 18px}.nf-plan .nf-card{padding:22px 16px}.nf-go{align-self:stretch}.nf-pick{padding:12px}}
+</style>
+<div class="nf">
+<form class="nf-card" id="nf-form" data-nf="consult" novalidate>
+<div><h3>諮詢需求表</h3><p class="nf-sub"><span class="k">請勿填寫身分<span class="nb">證字號、</span></span><span class="k">保單號碼與詳<span class="nb">細病歷；</span></span><span class="k">需要時於諮詢中<span class="nb">再提供。</span></span></p></div>
+<div class="nf-grid">
+<label class="nf-fld w"><span>稱呼 <span class="nf-req">必填</span></span><input type="text" id="nf-name" maxlength="20" placeholder="例如：王小姐" autocomplete="nickname"></label>
+<label class="nf-fld w"><span>電子郵件 <span class="nf-req">必填</span></span><input type="email" id="nf-email" maxlength="120" placeholder="name@example.com" autocomplete="email"></label>
+<label class="nf-fld w"><span>LINE ID 或電話 <span class="nf-opt">選填</span></span><input type="text" id="nf-contact" maxlength="50"></label>
 </div>
-<style>#form{height:1500px}@media (max-width:900px){#form{height:1750px}}@media (max-width:560px){#form{height:2300px}}</style>
-<noscript><p class="alt"><span><span class="k">您的瀏覽器未開啟 JavaScr<span class="nb">ipt，</span></span><span class="k">請改用下方的</span><span class="k">「開新視窗<span class="nb">填寫」。</span></span></span></p></noscript>
-<p class="alt"><span><span class="k">表單無法顯示？</span></span><a class="btn line" id="formwin" href="https://script.google.com/macros/s/AKfycbx2XgPk2s9HE_t-WE---PjM0-KyDlWMMfWJyV_oPn67dkhJPnHDkpRmjKYKtIzsZv9evw/exec?page=consult" target="_blank" rel="noopener">開新視窗填寫</a><a class="btn line" href="https://line.me/R/ti/p/@356cgufo" target="_blank" rel="noopener">官方 LINE <span class="nb">@356cgufo</span></a></p></section>
+<div class="nf-grid">
+<label class="nf-fld"><span>年齡區間 <span class="nf-req">必填</span></span><select id="nf-age"><option value="">請選擇</option><option value="未滿 20 歲">未滿 20 歲</option><option value="20–35 歲">20–35 歲</option><option value="36–50 歲">36–50 歲</option><option value="51–65 歲">51–65 歲</option><option value="66 歲以上">66 歲以上</option></select></label>
+<label class="nf-fld"><span>目前大約有幾張保單 <span class="nf-req">必填</span></span><select id="nf-policies"><option value="">請選擇</option><option value="1–2 張">1–2 張</option><option value="3–5 張">3–5 張</option><option value="6 張以上">6 張以上</option><option value="不清楚">不清楚</option></select></label>
+<label class="nf-fld"><span>每年保費預算 <span class="nf-req">必填</span></span><select id="nf-budget"><option value="">請選擇</option><option value="3 萬以下">3 萬以下</option><option value="3–6 萬">3–6 萬</option><option value="6–10 萬">6–10 萬</option><option value="10 萬以上">10 萬以上</option><option value="還不確定">還不確定</option></select></label>
+</div>
+<fieldset><legend>是否有體況 <span class="nf-req">必填</span></legend><div class="nf-inline">
+<label class="nf-radio"><input type="radio" name="cond" value="Y"> 有</label>
+<label class="nf-radio"><input type="radio" name="cond" value="N"> 無</label>
+</div></fieldset>
+<label class="nf-fld"><span>想諮詢的事 <span class="nf-req">必填</span></span><textarea id="nf-topic" rows="5" maxlength="1000" style="min-height:130px" placeholder="例如：想知道現有保單有沒有重複、缺少哪些保障"></textarea></label>
+<div class="nf-hp" aria-hidden="true"><label>網站<input type="text" id="nf-website" tabindex="-1" autocomplete="off"></label></div>
+<div class="nf-privacy"><b>個人資料蒐集告知</b><div><span class="k">蒐集者：</span><span class="k">保險經紀人<span class="nb"> 廖尹浠</span></span><span class="k">（保險浠思維）</span></div><div><span class="k">蒐集目的：</span><span class="k">回覆諮詢、寄送<span class="nb">投保文件</span></span><span class="k">與提供保險相<span class="nb">關服務。</span></span></div><div><span class="k">蒐集項目：</span><span class="k">稱呼、電子郵件、<span class="nb">聯絡方式</span></span><span class="k">及您於本表單填寫<span class="nb">的內容。</span></span></div><div><span class="k">利用期間、地區<span class="nb">與對象：</span></span><span class="k">自您送出起至</span><span class="k">服務目的完成後<span class="nb">一年內；</span></span><span class="k">於臺灣地區由蒐集者本<span class="nb">人利用，</span></span><span class="k">不提供給第三人。</span><span class="k">辦理投保時，</span><span class="k">另依您簽署的要保文<span class="nb">件辦理。</span></span></div><div><span class="k">您的權利：</span><span class="k">可來信 <span class="nb">hsiinsbroker@gmail.com</span></span> <span class="k">請求查詢、閱覽<span class="nb">、複製、</span></span><span class="k">補充更正、</span><span class="k">停止蒐集處理利用<span class="nb">或刪除。</span></span></div><div><span class="k">您可以選擇<span class="nb">不提供，</span></span><span class="k">但將無法為您提供本<span class="nb">項服務。</span></span></div></div><label class="nf-agree"><input type="checkbox" id="nf-agree"><span><span class="k">我已閱讀並同意</span><span class="k">上述個人資料蒐<span class="nb">集告知。</span></span></span></label>
+<button class="nf-go" type="submit" id="nf-go">送出諮詢需求</button>
+<div class="nf-msg" id="nf-msg" role="status" hidden></div>
+</form>
+<div class="nf-card nf-done" id="nf-done" role="status" hidden><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1F3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg><h3><span class="k">已收到</span><span class="k">您的諮詢需求</span></h3><p id="nf-doneText"><span class="k">確認信已寄到您的電<span class="nb">子信箱。</span></span><br><span class="k">我瞭解需求後，</span><span class="k">會以 Email 或 LINE <span class="nb">回覆您。</span></span></p><div class="nf-line"><p class="t"><span class="k">方便後續聯繫，</span><span class="k">請加入官方 <span class="nb">LINE</span></span></p><p class="s">LINE ID：@356cgufo<br><span class="k">加入後傳送您<span class="nb">的稱呼，</span></span><span class="k">我會對應您的諮<span class="nb">詢需求。</span></span></p><a class="nf-btn" href="https://line.me/R/ti/p/@356cgufo" target="_blank" rel="noopener">加入官方 LINE</a></div></div>
+</div>
+<noscript><p class="alt"><span><span class="k">這張表單需要開啟 JavaScript 才<span class="nb">能送出，</span></span><span class="k">也可以透過官方 LINE <span class="nb">聯絡我。</span></span></span></p></noscript>
+<p class="alt"><span><span class="k">表單送不出去？</span></span><a class="btn line" href="https://line.me/R/ti/p/@356cgufo" target="_blank" rel="noopener">官方 LINE <span class="nb">@356cgufo</span></a></p></section>
 </main>
 <footer><div class="in">
 <div class="name"><span class="k">保險浠思維｜</span><span class="k">你的保險經紀人 廖尹浠</span></div>
@@ -163,22 +245,166 @@ footer .copy{font-size:13px;color:#A9B6C6}
 </div></footer>
 <script>
 (function(){
-  var f=document.getElementById('form'),ld=document.getElementById('formload'),
-      slow=document.getElementById('formslow'),win=document.getElementById('formwin');
-  if(!f)return;
-  var m=/[?&]src=([A-Za-z0-9_-]{1,24})(?:&|#|$)/.exec(location.search),src=m?'&src='+m[1]:'';
-  var t=setTimeout(function(){if(slow)slow.hidden=false;},12000);
-  function done(){clearTimeout(t);if(ld)ld.hidden=true;}
-  f.addEventListener('load',done);
-  window.addEventListener('message',function(e){
-    if(!/^https:\/\/[a-z0-9-]+\.googleusercontent\.com$/.test(e.origin))return;
-    var d=e.data;if(!d||typeof d!=='object')return;
-    var h=d.hsiibFormHeight;
-    if(typeof h==='number'&&h>200&&h<8000){f.style.height=Math.ceil(h)+'px';}
-    if(d.hsiibFormReady===true){done();}
+var API="https://script.google.com/macros/s/AKfycbx2XgPk2s9HE_t-WE---PjM0-KyDlWMMfWJyV_oPn67dkhJPnHDkpRmjKYKtIzsZv9evw/exec",LINE="https://line.me/R/ti/p/@356cgufo",CONSULT="/consult";
+var form=document.getElementById('nf-form');if(!form)return;
+var kind=form.getAttribute('data-nf');
+function $(id){return document.getElementById('nf-'+id);}
+function picked(name){var r=form.querySelector('input[name='+name+']:checked');return r?r.value:'';}
+var sm=/[?&]src=([A-Za-z0-9_-]{1,24})(?:&|#|$)/.exec(location.search),SRC=sm?sm[1]:'';
+var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+var UNSURE='無法確認是否送出成功。請先到信箱（含垃圾郵件匣）查看；若沒有收到，請稍後再試，或透過官方 LINE 聯絡我。';
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function kp(s){
+  return String(s).replace(/（[^）]*）[，。；]?|[^，。；（]+[，。；]?/g,function(m){
+    var n=m.length>8?m.length-4:m.length;
+    return '<span class="k">'+esc(m.slice(0,n))+(n<m.length?'<span class="nb">'+esc(m.slice(n))+'</span>':'')+'</span>';
   });
-  f.src=f.getAttribute('data-src')+src;
-  if(win&&src){win.href=win.href+(win.href.indexOf('?')<0?'?':'&')+src.slice(1);}
+}
+function say(cls,h){var m=$('msg');m.className='nf-msg nf-'+cls;m.innerHTML=h;m.hidden=false;}
+function lineBtn(){return '<br><a class="nf-btn" target="_blank" rel="noopener" href="'+LINE+'">加入官方 LINE</a>';}
+function consultBtn(){return '<br><a class="nf-btn" href="'+CONSULT+'">預約個案諮詢</a>';}
+function post(data,ms){
+  var ctl=window.AbortController?new AbortController():null;
+  var t=setTimeout(function(){if(ctl)ctl.abort();},ms);
+  var o={method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data),redirect:'follow',credentials:'omit'};
+  if(ctl)o.signal=ctl.signal;
+  return fetch(API,o).then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json();})
+    .then(function(j){clearTimeout(t);if(!j||typeof j!=='object')throw new Error('format');return j;},
+          function(e){clearTimeout(t);throw e;});
+}
+var go=$('go'),goText=go.textContent,busy=false,after=function(){};
+function start(label,note){busy=true;go.disabled=true;go.textContent=label;say('info',kp(note));}
+function stop(){busy=false;go.disabled=false;go.textContent=goText;after();}
+function fail(r){stop();say('err',kp((r&&r.msg)||'系統忙碌中，請稍後再試。')+(r&&r.consult?consultBtn():'')+(r&&r.line?lineBtn():''));}
+function lost(){stop();say('err',kp(UNSURE)+lineBtn());}
+function showDone(){var d=$('done');form.hidden=true;d.hidden=false;try{d.scrollIntoView({block:'center'});}catch(e){}}
+function send(data,ms,ok){
+  data.agree=$('agree').checked;data.website=$('website').value;data.src=SRC;
+  post(data,ms).then(function(r){if(r.ok===true){ok(r);}else{fail(r);}},lost);
+}
+
+if(kind==='plan'){(function(){
+  var OCC=null,occState=0,st={age:null,kind:null};
+  function insAge(v){
+    var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');if(!m)return NaN;
+    var now=new Date(),t=[now.getFullYear(),now.getMonth()+1,now.getDate()],b=[Number(m[1]),Number(m[2]),Number(m[3])];
+    var months=(t[0]-b[0])*12+(t[1]-b[1])-(t[2]<b[2]?1:0);if(months<0)return NaN;
+    var years=Math.floor(months/12),rem=months%12;
+    return years+((rem>6||(rem===6&&t[2]!==b[2]))?1:0);
+  }
+  function fillMajors(){
+    var mj=$('major');mj.innerHTML='<option value="">請選擇行業</option>';mj.disabled=false;
+    OCC.majors.forEach(function(m){var o=document.createElement('option');o.value=m[0];o.textContent=m[1];mj.appendChild(o);});
+  }
+  function fillOcc(){
+    var sel=$('occ'),mj=$('major').value;sel.innerHTML='<option value="">'+(mj?'請選擇職業':'請先選擇行業')+'</option>';sel.disabled=!mj;
+    if(!mj||!OCC)return;
+    var groups={};
+    OCC.items.forEach(function(x){if(x[0].slice(0,2)===mj){var g=x[0].slice(0,4);(groups[g]=groups[g]||[]).push(x);}});
+    Object.keys(groups).sort().forEach(function(g){
+      var og=document.createElement('optgroup');og.label=OCC.mids[g]||'其他';
+      groups[g].forEach(function(x){var o=document.createElement('option');o.value=x[0];o.textContent=x[1];og.appendChild(o);});
+      sel.appendChild(og);
+    });
+  }
+  function validOcc(d){return d&&Array.isArray(d.majors)&&Array.isArray(d.items)&&d.items.length>0&&d.mids&&typeof d.mids==='object';}
+  function loadOcc(){
+    if(occState!==0)return;
+    try{var c=JSON.parse(sessionStorage.getItem('hsiibOcc')||'null');if(validOcc(c)){OCC=c;occState=2;fillMajors();return;}}catch(e){}
+    occState=1;$('major').innerHTML='<option value="">職業資料載入中…</option>';$('major').disabled=true;
+    post({action:'occ'},30000).then(function(j){
+      if(j.ok!==true||!validOcc(j.occ))throw new Error('occ');
+      OCC=j.occ;occState=2;try{sessionStorage.setItem('hsiibOcc',JSON.stringify(OCC));}catch(e){}
+      fillMajors();refresh();
+    }).catch(function(){
+      occState=3;$('major').innerHTML='<option value="">職業資料載入失敗</option>';refresh();
+    });
+  }
+  function refresh(){
+    var bv=$('birth').value,age=insAge(bv),h=$('ageHint');
+    st.age=age;st.kind=null;
+    if(isNaN(age)){h.className='nf-tip nf-warn';h.textContent='請確認出生日期。';}
+    else if(age>35){h.className='nf-tip nf-warn';h.innerHTML=kp('保險年齡 '+age+' 歲。罐頭保單適用 0 至 35 歲，建議改用個案諮詢。')+consultBtn();}
+    else{st.kind=age<=15?'K':'A';h.className='nf-tip';h.innerHTML=kp('保險年齡 '+age+' 歲，適用'+(st.kind==='K'?'幼兒罐頭（0 至 15 歲）':'成人罐頭（16 至 35 歲）')+'。');}
+    h.hidden=!bv;
+    $('occBox').hidden=st.kind!=='A';
+    if(st.kind==='A')loadOcc();
+    $('nameLabel').textContent=st.kind==='K'?'寶貝的稱呼':'您的稱呼';
+    var has=picked('has');$('hasHint').hidden=has!=='Y';
+    var occOk=true,oh=$('occHint');
+    if(st.kind==='A'){
+      var it=OCC?OCC.items.filter(function(x){return x[0]===$('occ').value;})[0]:null;
+      if(occState===3){
+        occOk=false;oh.className='nf-tip nf-warn';
+        oh.innerHTML=kp('職業資料暫時載入不了。')+'<button type="button" class="nf-link" id="nf-occRetry">重新載入</button>'+kp('，或透過官方 LINE 聯絡我。')+lineBtn();
+        oh.hidden=false;$('occRetry').addEventListener('click',function(){occState=0;oh.hidden=true;loadOcc();});
+      }
+      else if(!it){occOk=false;oh.hidden=true;}
+      else if(it[2]>4){occOk=false;oh.className='nf-tip nf-warn';oh.innerHTML=kp('這個職業不適用罐頭保單，建議改用個案諮詢。')+consultBtn();oh.hidden=false;}
+      else{oh.className='nf-tip';oh.innerHTML='職業等級：第 '+it[2]+' 類<br><span class="k">（以保險公司核保認定為準）</span>';oh.hidden=false;}
+    }
+    go.disabled=busy||!(st.kind&&occOk&&has==='N');
+  }
+  after=refresh;
+  var d=new Date(),pad=function(n){return (n<10?'0':'')+n;};
+  $('birth').max=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  $('major').addEventListener('change',function(){fillOcc();refresh();});
+  ['birth','occ'].forEach(function(id){$(id).addEventListener('change',refresh);});
+  Array.prototype.forEach.call(form.querySelectorAll('input[name=has]'),function(r){r.addEventListener('change',refresh);});
+  refresh();
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(busy||go.disabled)return;
+    var sex=picked('sex'),email=$('email').value.trim();
+    if(!sex)return say('err','請選擇被保險人性別。');
+    if(!EMAIL.test(email))return say('err','請填寫正確的電子郵件。');
+    if(!$('agree').checked)return say('err',kp('請先勾選同意個人資料告知事項。'));
+    start('送出中…','正在送出，請不要關閉頁面。');
+    send({action:'plan',birth:$('birth').value,sex:sex,occ:$('occ').value,name:$('name').value,email:email},60000,function(){showDone();});
+  });
+})();}
+
+if(kind==='consult'){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(busy)return;
+    var d={action:'consult',name:$('name').value.trim(),email:$('email').value.trim(),contact:$('contact').value.trim(),
+      age:$('age').value,policies:$('policies').value,budget:$('budget').value,cond:picked('cond'),topic:$('topic').value.trim()};
+    if(!d.name)return say('err','請填寫稱呼。');
+    if(!EMAIL.test(d.email))return say('err','請填寫正確的電子郵件。');
+    if(!d.age)return say('err','請選擇年齡區間。');
+    if(!d.policies)return say('err','請選擇目前大約有幾張保單。');
+    if(!d.budget)return say('err','請選擇每年保費預算。');
+    if(!d.cond)return say('err','請選擇是否有體況。');
+    if(!d.topic)return say('err','請填寫想諮詢的事。');
+    if(!$('agree').checked)return say('err',kp('請先勾選同意個人資料蒐集告知。'));
+    start('送出中…','正在送出，請不要關閉頁面。');
+    send(d,60000,function(r){
+      if(r.mailed===false)$('doneText').innerHTML=kp('確認信暫時無法寄出，但我已收到您的需求。')+'<br>'+kp('我瞭解需求後，會以 Email 或 LINE 回覆您。');
+      showDone();
+    });
+  });
+}
+
+if(kind==='travel'){
+  (function(){
+    var t=new Date(),p=function(n){return (n<10?'0':'')+n;};
+    $('depart').min=t.getFullYear()+'-'+p(t.getMonth()+1)+'-'+p(t.getDate());
+    Array.prototype.forEach.call(form.querySelectorAll('input[name=card]'),function(r){
+      r.addEventListener('change',function(){$('govnote').hidden=picked('card')!=='gov';});
+    });
+  })();
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(busy)return;
+    var d={action:'travel',name:$('name').value.trim(),email:$('email').value.trim(),card:picked('card'),family:$('family').value,
+      depart:$('depart').value,topic:$('topic').value.trim()};
+    if(!d.name)return say('err','請填寫稱呼。');
+    if(!EMAIL.test(d.email))return say('err','請填寫正確的電子郵件。');
+    if(!d.card)return say('err','請選擇申辦卡別。');
+    if(d.family==='')return say('err',kp('請選擇預計列名的家人人數。'));
+    if(!$('agree').checked)return say('err',kp('請先勾選同意個人資料蒐集告知。'));
+    start('寄送中…','正在寄送申辦文件，大約需要十幾秒，請不要關閉頁面。');
+    send(d,90000,function(){showDone();});
+  });
+}
 })();
 </script>
 </body>
